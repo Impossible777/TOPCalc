@@ -1,30 +1,39 @@
-body {
+
+.main {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 75vh;
+    min-height: 500px;
+    padding: 10px;
+    margin-top: 50px;
 }
 
 #calculator {
     display: flex;
-    width: 450px;
-    height: 300px;
+    width: 400px;
+    height: 561.5px;
     flex-wrap: wrap;
     border: 2px solid black;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    background-color: #aaa;
 }
 
 #displayContainer{
     border: 2px solid black;
     border-radius: 10px;
     margin: 10px;
-    width: 360px;
-    height: 50px;
+    width: 334px;
+    height: 90px;
+    background-color: white;
 }
 #display {
     display: flex;
-    justify-content: center;
+    justify-content:flex-end;
+    padding: 5px;
+    font-size: 20px;
 
 
 }
@@ -32,34 +41,69 @@ body {
 .buttons {
     display: flex;
     flex-wrap: wrap;
-    width: 450px;
-    height: 185px;
+    gap: 5px;
+    width: 340px;
+    height: 320px;
     justify-content: center;
     margin: 0px;
     padding: 0px;
+
 }
 
 
 .numbers {
-    width: 120px;
-    height: 20px;
+    width: 80px;
+    height: 60px;
     text-align: center;
     margin: 0px;
     padding: 0px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
 
 
     
 }
 #equals {
-    width: 120px;
-    height: 20px;
+    width: 80px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
 }
 #clear {
-    width: 120px;
-    height: 20px;
+    width: 165px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #faa;
 }
 
 #answer {
     display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    font-size: 50px;
+}
+#delete {
+    width: 165px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #aaf;
+
+}
+#erase {
+
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
 }
