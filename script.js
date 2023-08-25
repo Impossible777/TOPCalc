@@ -1,4 +1,4 @@
-var input1
+var input1 
 var input2 
 var operator 
 let count = 1;
@@ -30,6 +30,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if (b ===0) {
+        return "Invalid"
+    }
     let division = a / b
     return division.toFixed(2)
 
@@ -45,7 +48,7 @@ function operate(a, b, perform) {
     } else if (perform == "/") {
         return divide(a,b)
     } else {
-        return "Not a valid operator"
+        return "Invalid"
 
     }
 }
@@ -53,7 +56,7 @@ function operate(a, b, perform) {
 
 function deleteLastEntry() {
     displayContent = display.textContent
-    if (displayContent.length > 0) {
+    if (displayContent.length > 0 && display.textContent.slice(-1) != "=") {
         display.textContent = displayContent.slice(0, -1)
     } else {
         display.textContent = display.textContent
@@ -120,6 +123,9 @@ deleteChar.addEventListener('click', deleteLastEntry);
 clear.addEventListener('click', clearData);
 equals.addEventListener('click', assignInputs)
 equals.addEventListener('click', function() {
+    if (display.textContent.includes("=")) {
+        return;
+    }
     displayCount =1;
     const result = operate(input1, input2, operator)
     display.textContent = display.textContent + " =" 
