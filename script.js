@@ -9,23 +9,29 @@ const display = document.getElementById('display');
 const clear = document.getElementById('clear')
 const equals = document.getElementById('equals')
 const answer = document.getElementById("answer")
+const deleteChar = document.getElementById("delete");
 
 
 
 function add(a, b) {
-    return a + b
+    let addition = a + b;
+    return addition.toFixed(2)
 }
 
 function subtract(a, b) {
-    return a - b
+    let subtraction = a - b
+    return subtraction.toFixed(2)
 }
 
 function multiply(a, b) {
-    return a * b
+    let multiplication = a * b
+    return multiplication.toFixed(2)
 }
 
 function divide(a, b) {
-    return a / b
+    let division = a / b
+    return division.toFixed(2)
+
 }
 
 function operate(a, b, perform) {
@@ -44,6 +50,17 @@ function operate(a, b, perform) {
 }
 
 
+function deleteLastEntry() {
+    displayContent = display.textContent
+    if (displayContent.length > 0) {
+        display.textContent = displayContent.slice(0, -1)
+    } else {
+        display.textContent = display.textContent
+    }
+
+
+}
+
 function clearData() {
     display.textContent = ""
     answer.textContent = "";
@@ -61,7 +78,7 @@ function changeDisplay () {
     if ( content === "+" || content === "-" || content === "*" || content === "/") {
         if (displayCount ===1) {
             display.textContent = ""
-            display.textContent = input1 + " " + content
+            display.textContent = input1 + " " + content + " "
 
         } else {
         display.textContent = display.textContent + " " + content + " "
@@ -72,38 +89,23 @@ function changeDisplay () {
     }
 }
 
-
-function identifyNumber () {
-    const content = this.textContent
-    let temp = this.textContent
-    if (content != "+" && content != "-" && content != "*" && content != "/" && count ===1) {
-        tempInput = tempInput + content
-        input1 = parseInt(tempInput)
-    } else if (content === "+" || content === "-" || content === "*" || content === "/") {
-        operator = content
-        count = count + 1
-        tempInput = ""
-        display.textContent = display.textContent + " "
-    } else if (content != "+" && content != "-" && content != "*" && content != "/" && count ===2) {
-        tempInput = tempInput + content;
-        input2 = parseInt(tempInput);
-        console.log(input2)
-    }
-  
+function assignInputs() {
+    let temporary = display.textContent.split(' ')
+    input1 = parseFloat(temporary[0])
+    input2 = parseFloat(temporary[2])
+    operator = temporary[1]
 
 }
 
 for (let i =0; i < clickButton.length; i++) {
     clickButton[i].addEventListener("click", changeDisplay)
 }
-for (let i =0; i < clickButton.length; i++) {
-    clickButton[i].addEventListener("click", identifyNumber)
-}
 
 
+deleteChar.addEventListener('click', deleteLastEntry);
 clear.addEventListener('click', clearData);
+equals.addEventListener('click', assignInputs)
 equals.addEventListener('click', function() {
-    count =1
     displayCount =1;
     const result = operate(input1, input2, operator)
     display.textContent = display.textContent + " =" 
