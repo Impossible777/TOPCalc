@@ -10,6 +10,7 @@ const clear = document.getElementById('clear')
 const equals = document.getElementById('equals')
 const answer = document.getElementById("answer")
 const deleteChar = document.getElementById("delete");
+const decimalButton = document.getElementById("decimal");
 
 
 
@@ -63,7 +64,7 @@ function deleteLastEntry() {
 
 function clearData() {
     display.textContent = ""
-    answer.textContent = "";
+    answer.textContent = "0";
     
     input1 = 1;
     input2 = 1;
@@ -84,6 +85,16 @@ function changeDisplay () {
         display.textContent = display.textContent + " " + content + " "
         }
     }
+    else if (content === ".") {
+        inputString = display.textContent;
+        charToCheck = content;
+        if (inputString.indexOf(charToCheck) !== -1) {
+            return;
+        }
+        else {
+            display.textContent = display.textContent + content
+        }
+    }
      else {
         display.textContent = display.textContent + content
     }
@@ -97,9 +108,12 @@ function assignInputs() {
 
 }
 
+
+
 for (let i =0; i < clickButton.length; i++) {
     clickButton[i].addEventListener("click", changeDisplay)
 }
+
 
 
 deleteChar.addEventListener('click', deleteLastEntry);
