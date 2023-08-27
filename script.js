@@ -43,7 +43,7 @@ function operate(a, b, perform) {
         return add(a,b)
     } else if (perform == "-") {
         return subtract(a,b)
-    } else if (perform == "*") {
+    } else if (perform == "x") {
         return multiply(a,b)
     } else if (perform == "/") {
         return divide(a,b)
